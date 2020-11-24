@@ -9,7 +9,6 @@ class config:
 	key = "4395fd642c2f1b24f5d9d01e0a1f838a"
 
 def banner():
-	os.system('clear')
 	print ("""
   _____ _          _____ _       
  |  ___(_)_ __ ___|  ___| |_   _ 
