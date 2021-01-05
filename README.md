@@ -1,6 +1,6 @@
 <h2><strong>FireFly</strong></h2>
 
-*How to use*
+- *How to use*
 
 >1.  Install python libraries `pip install -r libs.txt`
 >
