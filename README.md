@@ -12,7 +12,7 @@
 
 > **This tool is for educational purposes only. I am not responsible for any damage you cause**
 
-- Output
+- *Output*
 
 > [+] Phone number information gathering
 > --------------------------------------
