@@ -2,7 +2,7 @@
 
 - *How to use*
 
->1.  Install python libraries `pip install -r libs.txt`
+>1.  Install python libraries `pip install -r requirements.txt`
 >
 >2.  Start up the script followed by the phone number `python FireFly.py <number>` 
 >
