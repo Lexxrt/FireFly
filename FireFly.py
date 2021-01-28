@@ -6,7 +6,9 @@ import urllib
 import os
 
 class config:
-	key = "4395fd642c2f1b24f5d9d01e0a1f838a"
+	key = "4a1ede76e87d9e64682b284e8620ad68" 
+	# key = "4395fd642c2f1b24f5d9d01e0a1f838a"
+	# NOTE: You can get ur own api key there: https://numverify.com/
 
 def banner():
 	print ("""
