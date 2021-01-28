@@ -33,4 +33,4 @@
 
 - *NOTE*
 
-> **You can get your own API key from here: https://numverify.com/
+> **You can get your own API key from here: https://numverify.com/**
