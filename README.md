@@ -6,7 +6,7 @@
 >
 >2.  Start up the script followed by the phone number `python3 FireFly.py <number>` 
 >
->   <img src="1.PNG">
+>   <img src="pic.jpg">
 
 - *Disclaimer*
 
