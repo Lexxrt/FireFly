@@ -30,3 +30,7 @@
 >  - Location: 
 >  - Carrier: 
 >  - Device: 
+
+- *NOTE*
+
+> **You can get your own API key from here: https://numverify.com/
