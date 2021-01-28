@@ -4,7 +4,7 @@
 
 >1.  Install python libraries `pip install -r requirements.txt`
 >
->2.  Start up the script followed by the phone number `python FireFly.py <number>` 
+>2.  Start up the script followed by the phone number `python3 FireFly.py <number>` 
 >
 >   <img src="1.PNG">
 
