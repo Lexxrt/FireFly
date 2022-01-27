@@ -2,85 +2,82 @@ import sys
 import requests
 import json
 import time
-import urllib
-import os
-
-class config:
-	key = "4a1ede76e87d9e64682b284e8620ad68" 
-	# key = "4395fd642c2f1b24f5d9d01e0a1f838a"
-	# NOTE: You can get ur own api key there: https://numverify.com/
 
 def banner():
-	print ("""
-  _____ _          _____ _       
- |  ___(_)_ __ ___|  ___| |_   _ 
- | |_  | | '__/ _ \ |_  | | | | |
- |  _| | | | |  __/  _| | | |_| |
- |_|   |_|_|  \___|_|   |_|\__, |
-                           |___/ 
+	print('''
+  ______ _          ______ _       
+ |  ____(_)        |  ____| |      
+ | |__   _ _ __ ___| |__  | |_   _ 
+ |  __| | | '__/ _ \  __| | | | | |
+ | |    | | | |  __/ |    | | |_| |
+ |_|    |_|_|  \___|_|    |_|\__, |
+                              __/ |
+                             |___/ 
 	Author: Lexxrt
 	Github: https://github.com/Lexxrt             
-	""")
+	''')
 
 def main():
 	banner()
 	if len(sys.argv) == 2:
 		number = sys.argv[1]
-		api = "http://apilayer.net/api/validate?access_key=" + config.key + "&number=" + number + "&country_code=&format=1"
-		output = requests.get(api)
-		content = output.text
-		obj = json.loads(content)
+		output = requests.get(f'http://apilayer.net/api/validate?access_key={key}&number={number}&country_code=&format=1').text
+		obj = json.loads(output)
+		
 		country_code = obj['country_code']
 		country_name = obj['country_name']
 		location = obj['location']
 		carrier = obj['carrier']
 		line_type = obj['line_type']
 
-		print ("[+] " + "Phone number information gathering")
-		print ("--------------------------------------")
+		print('[+] Phone number information gathering')
+		print('--------------------------------------')
 		time.sleep(0.2)
 
-		if country_code == "":
-			print (" - Getting Country		[ " + "FAILED " + "]")
+		if country_code == '':
+			print(' - Getting Country\t\t[ FAILED ]')
 		else:
-			print (" - Getting Country		[ " + "OK " + "]")
+			print(' - Getting Country\t\t[ OK ]')
 
 		time.sleep(0.2)
-		if country_name == "":
-			print (" - Getting Country Name		[ " + "FAILED " + "]")
+		if country_name == '':
+			print(' - Getting Country Name\t\t[ FAILED ]')
 		else:
-			print (" - Getting Country Name		[ " + "OK " + "]")
+			print(' - Getting Country Name\t\t[ OK ]')
 
 		time.sleep(0.2)
-		if location == "":
-			print (" - Getting Location		[ " + "FAILED " + "]")
+		if location == '':
+			print(' - Getting Location\t\t[ FAILED ]')
 		else:
-			print (" - Getting Location		[ " + "OK " + "]")
+			print(' - Getting Location\t\t[ OK ]')
 
 		time.sleep(0.2)
-		if carrier == "":
-			print (" - Getting Carrier		[ " + "FAILED " + "]")
+		if carrier == '':
+			print(' - Getting Carrier\t\t[ FAILED ]')
 		else:
-			print (" - Getting Carrier		[ " + "OK " + "]")
+			print(' - Getting Carrier\t\t[ OK ]')
 
 		time.sleep(0.2)
 		if line_type == None:
-			print (" - Getting Device		[ " + "FAILED " + "]")
+			print(' - Getting Device\t\t[ FAILED ]')
 		else:
-			print (" - Getting Device		[ " + "OK " + "]")
+			print(' - Getting Device\t\t[ OK ]')
 
-		print ("")
-		print ("[+] " + "Information Output")
-		print ("--------------------------------------")
-		print (" - Phone number: " + str(number))
-		print (" - Country: " + str(country_code))
-		print (" - Country Name: " + str(country_name))
-		print (" - Location: " + str(location))
-		print (" - Carrier: " + str(carrier))
-		print (" - Device: " + str(line_type))
+		print('[+] Information Output')
+		print('--------------------------------------')
+		print(' - Phone number:', number)
+		print(' - Country:', country_code)
+		print(' - Country Name:', country_name)
+		print(' - Location:', location)
+		print(' - Carrier:', carrier)
+		print(' - Device:', line_type)
 	else:
-		print ("[?] Usage:")
-		print ("	./%s <phone-number>" % (sys.argv[0]))
-		print ("	./%s +13213707446" % (sys.argv[0]))
+		print('[?] Usage:')
+		print('\tFireFly.py <phone-number>')
+		print('	python3 FireFly.py +13213707446 (Test Number)')
 
-main()
+if __name__ == '__main__':
+	config = open('config.json').read()
+	data = json.loads(config)
+	key = data['api_key']
+	main()
