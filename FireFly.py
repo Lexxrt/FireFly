@@ -1,7 +1,9 @@
-import sys
-import requests
 import json
+import sys
 import time
+
+import requests
+
 
 def banner():
 	print('''
@@ -21,8 +23,12 @@ def main():
 	banner()
 	if len(sys.argv) == 2:
 		number = sys.argv[1]
-		output = requests.get(f'http://apilayer.net/api/validate?access_key={key}&number={number}&country_code=&format=1').text
-		obj = json.loads(output)
+		try:
+			output = requests.get(f'http://apilayer.net/api/validate?access_key={key}&number={number}&country_code=&format=1', timeout=15)
+			obj = json.loads(output.text)
+		except Exception as e:
+			print(f'Fetching data failed: {e}')
+			exit(1)
 		
 		country_code = obj['country_code']
 		country_name = obj['country_name']
@@ -77,7 +83,11 @@ def main():
 		print('	python3 FireFly.py +13213707446 (Test Number)')
 
 if __name__ == '__main__':
-	config = open('config.json').read()
-	data = json.loads(config)
+	try:
+		config = open('config.json').read()
+		data = json.loads(config)
+	except Exception as e:
+		print(f'Reading config failed: {e}')
+		exit(1)
 	key = data['api_key']
 	main()
